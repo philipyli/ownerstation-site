@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+
+<!--
+#######################################
+	- THE HEAD PART -
+######################################
+-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>MegafolioPro -  The Grid System</title>
+	<link rel="icon" type="image/png" href="images/sitelogo.png" />
+
+
+
+    <!-- commented, remove this line to use IE & iOS favicons -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+
+
+    <!-- get jQuery from the google apis -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js"></script>
+
+
+    <!-- PREVIEW DEMO SITE CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/ccpreview.css" media="screen" />
+
+    <!-- MEGAFOLIO GALLERY  CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="megafolio/css/settings.css" media="screen" />
+
+     <!-- MEGAFOLIO GALLERY  JS FILES  -->
+	<script type="text/javascript" src="megafolio/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="megafolio/js/jquery.themepunch.megafoliopro.js"></script>
+
+     <!-- THE FANYCYBOX ASSETS -->
+	<link rel="stylesheet" href="megafolio/fancybox/jquery.fancybox.css?v=2.1.3" type="text/css" media="screen" />
+	<script type="text/javascript" src="megafolio/fancybox/jquery.fancybox.pack.js?v=2.1.3"></script>
+
+
+    <!-- THE GOOGLE FONT LOAD -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+
+
+
+<!--
+#######################################
+	- THE BODY PART -
+######################################
+-->
+<body class="megaexamples">
+
+	<div class="bgdiv"></div>
+	<div class="previewheader">
+
+
+				<!-- THE OPTIONS FROM THE LIVE PREVIEW -->
+				<div class="option-closer">
+					<div class="megatitle">
+						<div class="divide20"></div>
+						TONS OF OPTIONS AND PRESETS
+						<div class="divide45"></div>
+					</div>
+					<div class="opener-wrap">
+					<div class="givetry"></div>
+					<div class="opener"></div>
+
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+
+
+				<!-- THE SWITCHER PART  -->
+				<div class="switcher">
+
+							<div class="group-1">
+								<div class="buttontitle">Special Grids</div>
+								<div class="order button" data-order="[0]">Random</div>
+								<div class="order button" data-order="[2]">2</div>
+								<div class="order button selected" data-order="[3]">3</div>
+								<div class="order button selected" data-order="[4]">4</div>
+								<div class="order button selected" data-order="[5]">5</div>
+								<div class="order button" data-order="[6]">6</div>
+								<div class="order button selected" data-order="[7]">7</div>
+								<div class="order button" data-order="[8]">8</div>
+								<div class="order button selected" data-order="[9]">9</div>
+							</div>
+							<div class="group-2">
+								<div class="buttontitle">Basic Grids</div>
+								<div class="order button" data-order="[10]">10</div>
+								<div class="order button selected" data-order="[11]">11</div>
+								<div class="order button selected" data-order="[12]">12</div>
+								<div class="order button selected" data-order="[13]">13</div>
+							</div>
+
+							<div class="group-3">
+								<div class="buttontitle">Different Height Grids</div>
+								<div class="order button" data-order="[14]">14</div>
+								<div class="order button" data-order="[15]">15</div>
+								<div class="order button" data-order="[16]">16</div>
+								<div class="order button" data-order="[17]">17</div>
+							</div>
+
+							<div class="group-4">
+								<div class="buttontitle">Paddings</div>
+								<div class="pad_wrap"><input id="ph" class="pad" type="text" value="10"/><span class="pxc">px</span></div>
+								<div class="pad_wrap"><input id="pv" class="pad" type="text" value="10"/><span class="pxc">px</span></div>
+							</div>
+
+
+							<div class="group-7">
+								<div class="buttontitle">Background Image / Tile</div>
+								<div class="button bgch selected" data-bg="none">None</div>
+								<div class="button bgch" data-bg="bg3">3</div>
+								<div class="button bgch" data-bg="bg4">4</div>
+								<div class="button bgch" data-bg="bg5">5</div>
+								<div class="button bgch" data-bg="bg6">6</div>
+							</div>
+
+							<div class="group-6">
+								<div class="buttontitle">Animation Types</div>
+								<div class="button animb selected" data-ant="fade">1</div>
+								<div class="button animb" data-ant="rotate">2</div>
+								<div class="button animb" data-ant="scale">3</div>
+								<div class="button animb" data-ant="rotatescale">4</div>
+								<div class="button animb" data-ant="pagetop">5</div>
+								<div class="button animb" data-ant="pagebottom">6</div>
+								<div class="button animb" data-ant="pagemiddle">7</div>
+							</div>
+
+							<div class="group-8">
+								<div class="buttontitle">Speed</div>
+								<div class="pad_wrap longer"><input id="tp-speed" class="pad" type="text" value="600"/></div>
+							</div>
+
+							<div class="group-9">
+								<div class="buttontitle">Rotation <span style="font-size:10px">(99=random)</span></div>
+								<div class="pad_wrap longer"><input id="tp-rotate" class="pad" type="text" value="99"/></div>
+							</div>
+
+							<div class="group-10">
+								<div class="buttontitle">Scale <span style="font-size:10px">(0-1)</span></div>
+								<div class="pad_wrap longer"><input id="tp-scale" class="pad" type="text" value="0.60"/></div>
+							</div>
+
+							<div class="clear"></div>
+							<div class="divide15"></div>
+
+				</div>
+
+				<div class="divider"></div>
+
+					<!-- THE DROP DOWN FILTER -->
+					<div class="filter_padder">
+
+							<div class="filter_list_wrapper">
+								<div class="filter_list_button"><span class="current-filter">ALL</span></div>
+									<ul class="filter_list closed">
+										<div class="divide30"></div>
+										<li class="filter selected" data-category="cat-all">ALL</li>
+										<li  class="filter" data-category="cat-one">CATEGORY ONE</li>
+										<li class="filter" data-category="cat-two">CATEGORY TWO</li>
+										<li class="filter" data-category="cat-three">CATEGORY THREE</li>
+										<li class="filter last-child" data-category="cat-four">CATEGORY FOUR</li>
+										<div class="divide15"></div>
+									</ul>
+								</div>
+							</div>
+					  <div class="clear"></div>
+					</div>
+
+				<div class="clear"></div>
+				<div class="divide45"></div>
+
+	</div> <!-- END OF PREVIEWHEADER -->
+
+
+
+	<div class="container">
+
+
+				<!-- The GRID System -->
+				<div class="megafolio-container light-bg-entries">
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-two cat-all" data-src="images/image1.jpg" data-width="577" data-height="500">
+								<div class="mega-hover">
+										<div class="mega-hovertitle">PRETTY SAILBOAT<div class="mega-hoversubtitle">CATEGORY TWO</div></div>
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image1.jpg"><div class="mega-hoverview"></div></a>
+
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-one cat-all" data-src="images/image2.jpg" data-width="667" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">LIVING SUGAR<div class="mega-hoversubtitle">CATEGORY ONE</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image2.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-three cat-all" data-src="images/image3.jpg" data-width="625" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">LITTLE TOWN<div class="mega-hoversubtitle">CATEGORY THREE</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image3.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-four cat-all" data-src="images/image4.jpg" data-width="500" data-height="500">
+							<div class="mega-hover notitle">
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image4.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+
+								<div class="fatcaption-top">FINE ART PROJECT</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-one cat-all" data-src="images/image5.jpg" data-width="551" data-height="500">
+							<div class="mega-hover alone">
+										<div class="mega-hovertitle">SEAFOOD RESTAURANT<div class="mega-hoversubtitle">CATEGORY ONE</div></div>
+
+										<a class="fancybox" rel="group" href="images/image5.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-two cat-all" data-src="images/image6.jpg" data-width="594" data-height="50">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">COLORED PENCILS<div class="mega-hoversubtitle">CATEGORY TWO</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image6.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-three cat-all" data-src="images/image7.jpg" data-width="512" data-height="500">
+							<div class="mega-hover notitle">
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image7.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+
+								<div class="fatcaption-bottom">TRIPPY AIRPLANES</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-four cat-all" data-src="images/image8.jpg" data-width="612" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">MOBILE OPTIMIZED<div class="mega-hoversubtitle">CATEGORY FOUR</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image8.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-two cat-all" data-src="images/image9.jpg" data-width="615" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">CAR VINTAGE RACING<div class="mega-hoversubtitle">CATEGORY TWO</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image9.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-three cat-all" data-src="images/image1.jpg" data-width="577" data-height="500">
+								<div class="mega-hover">
+										<div class="mega-hovertitle">PRETTY SAILBOAT<div class="mega-hoversubtitle">CATEGORY THREE</div></div>
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image1.jpg"><div class="mega-hoverview"></div></a>
+
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-four cat-all" data-src="images/image2.jpg" data-width="667" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">LIVING SUGAR<div class="mega-hoversubtitle">CATEGORY FOUR</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image2.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-one cat-all" data-src="images/image3.jpg" data-width="625" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">LITTLE TOWN<div class="mega-hoversubtitle">CATEGORY ONE</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image3.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-two cat-all" data-src="images/image4.jpg" data-width="500" data-height="500">
+							<div class="mega-hover notitle">
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image4.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+
+								<div class="fatcaption-top">FINE ART PROJECT</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-four cat-all" data-src="images/image5.jpg" data-width="551" data-height="500">
+							<div class="mega-hover alone">
+										<div class="mega-hovertitle">SEAFOOD RESTAURANT<div class="mega-hoversubtitle">CATEGORY FOUR</div></div>
+
+										<a class="fancybox" rel="group" href="images/image5.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-three cat-all" data-src="images/image6.jpg" data-width="594" data-height="50">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">COLORED PENCILS<div class="mega-hoversubtitle">CATEGORY THREE</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image6.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-one cat-all" data-src="images/image7.jpg" data-width="512" data-height="500">
+							<div class="mega-hover notitle">
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image7.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+
+								<div class="fatcaption-bottom">TRIPPY AIRPLANES</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-two cat-all" data-src="images/image8.jpg" data-width="612" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">MOBILE OPTIMIZED<div class="mega-hoversubtitle">CATEGORY TWO</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image8.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+						<!-- ONE ENTRY IN THE GALLERY -->
+						<div class="mega-entry cat-four cat-all" data-src="images/image9.jpg" data-width="615" data-height="500">
+							<div class="mega-hover">
+										<div class="mega-hovertitle">CAR VINTAGE RACING<div class="mega-hoversubtitle">CATEGORY FOUR</div></div>
+
+										<div class="mega-hoverlink"></div>
+										<a class="fancybox" rel="group" href="images/image9.jpg"><div class="mega-hoverview"></div></a>
+								</div>
+						</div>
+
+				</div>
+	</div>
+	<div class="divide20"></div>
+
+	<div class="addmore pad_wrap">Show More Entries</div>
+
+	<div class="divide90"></div>
+
+
+
+
+			<!--
+			##############################
+			 - ACTIVATE THE BANNER HERE -
+			##############################
+			-->
+			<script type="text/javascript">
+
+
+				jQuery(document).ready(function() {
+
+					var api=jQuery('.megafolio-container').megafoliopro(
+						{
+							filterChangeAnimation:"fade",			// fade, rotate, scale, rotatescale, pagetop, pagebottom,pagemiddle
+							filterChangeSpeed:600,					// Speed of Transition
+							filterChangeRotate:99,					// If you ue scalerotate or rotate you can set the rotation (99 = random !!)
+							filterChangeScale:0.6,					// Scale Animation Endparameter
+							delay:20,
+							defaultWidth:980,
+							paddingHorizontal:10,
+							paddingVertical:10,
+							layoutarray:[0]		// Defines the Layout Types which can be used in the Gallery. 2-9 or "random". You can define more than one, like {5,2,6,4} where the first items will be orderd in layout 5, the next comming items in layout 2, the next comming items in layout 6 etc... You can use also simple {9} then all item ordered in Layout 9 type.
+
+						});
+
+
+					// INITIALISATION OF THE FANCY BOX (LIVE BOX)
+					jQuery(".fancybox").fancybox();
+
+
+					// THE FILTER FUNCTION
+					jQuery('.filter').click(function() {
+						jQuery('.filter').each(function() { jQuery(this).removeClass("selected")});
+						api.megafilter(jQuery(this).data('category'));
+						jQuery(this).addClass("selected");
+						jQuery('body').find('ul.filter_list').slideUp(500).addClass("closed");
+						jQuery('body').find('.current-filter').html(jQuery(this).text());
+					});
+
+
+					// DROP DOWN LIST OPEN AND CLOSE
+					jQuery('.filter_list_button').click(function() {
+						var ul=jQuery('body').find('ul.filter_list');
+						if (ul.hasClass('closed')) {
+							ul.slideDown(500);
+							ul.removeClass('closed');
+						} else {
+							ul.slideUp(500);
+							ul.addClass('closed');
+						}
+					});
+
+
+					// THE REMIX OF GALLERY IF ONE OF THE OTHER GRID HAS BEED SELECTED
+					jQuery('.order').click(function()  {
+						jQuery('.order').each(function() { jQuery(this).removeClass("selected")});
+						api.megaremix(jQuery(this).data('order'));
+						jQuery(this).addClass("selected");
+
+					});
+
+
+					// IF ANIMATION HAS BEED CHANGED, THE BASIC ANIMATION STYLE SHOULD BE CHANGED
+					jQuery('.animb').click(function()  {
+						var speed=jQuery('#tp-speed').val();
+						var rotate=jQuery('#tp-rotate').val();
+						var scale=jQuery('#tp-scale').val();
+						jQuery('.animb').each(function() { jQuery(this).removeClass("selected")});
+						api.megaanimchange(jQuery(this).data('ant'),speed,rotate,scale);
+						jQuery(this).addClass("selected");
+					});
+
+
+					// PADDING CHANGER, THE GALLERY WILL BE REMIXED IN CASE THE PADDING HAS BEEN CHANGED
+					jQuery(".pad").change(function() {
+						var mc = jQuery('.megafolio-container');
+						mc.data('paddingh',jQuery("#ph").val());
+						mc.data('paddingv',jQuery("#pv").val());
+						api.megaremix(api.megagetcurrentorder());
+					});
+
+
+					// OPEN CLOSE THE OPTION PARTS IN THE HEADER
+					jQuery(".opener").click(function() {
+						var op=jQuery(this);
+						if (op.hasClass('active'))	{
+							op.removeClass('active');
+							jQuery('.switcher').slideUp(600);
+							jQuery('.megatitle').slideDown(600);
+							jQuery('.givetry').slideDown(600);
+						} else {
+							op.addClass('active');
+							jQuery('.switcher').slideDown(600);
+							jQuery('.megatitle').slideUp(600);
+							jQuery('.givetry').slideUp(600);
+						}
+					})
+
+
+					// CHANGE THE BACKGROUND IMAGES
+					jQuery('.bgch').click(function() {
+						var oldbg=jQuery('.bgch.selected');
+						var newbg=jQuery(this);
+						jQuery('.bgdiv').removeClass(oldbg.data('bg'));
+						jQuery('.bgdiv').addClass(newbg.data('bg'));
+						oldbg.removeClass("selected");
+						newbg.addClass("selected");
+
+					})
+
+					// ADD MORE ITEMS TO THE GALLERY
+				   jQuery('.addmore').click(function() {
+						for (var i=0;i<Math.round(Math.random()*4+1);i++) {
+							var newentry=createEntry();
+							api.megaappendentry(newentry);
+						}
+					})
+
+
+
+
+
+					/***********************************************
+						- 	CREATE RANDOM ENTRIES FOR PREVIEW
+								THIS IS ONLY AN EXAMPLE -
+					************************************************/
+					function createEntry() {
+						// RANDOM CATEGORIE
+						var cnu = Math.round(Math.random()*5+1);
+						var cat ="one";
+						if (cnu==1) cat="one";
+						else
+						if (cnu==2) cat="two";
+						else
+						if (cnu==3) cat="three";
+						else
+						cat=="four";
+
+						var imgsrc=Math.round(Math.random()*8+1);
+						var  newentry='<div class="mega-entry  cat-'+cat+' cat-all"  id="mega-entry-'+Math.round(Math.random()*1500+1000)+'" data-src="images/image'+imgsrc+'.jpg" data-width="577" data-height="500">'+
+							             '<div class="mega-hover">'+
+    										 '<div class="mega-hovertitle">CAR VINTAGE RACING<div class="mega-hoversubtitle">CATEGORY FOUR</div></div>'+
+    										 '<div class="mega-hoverlink"></div>'+
+    										 '<a class="fancybox" rel="group" href="images/image'+imgsrc+'.jpg"><div class="mega-hoverview"></div></a>'+
+										 '</div>'+
+								    '</div>';
+
+						return newentry;
+					}
+
+				});
+
+			</script>
+
+
+
+
+	</body>
+</html>

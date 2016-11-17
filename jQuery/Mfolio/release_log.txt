@@ -1,0 +1,7 @@
+Version 1.2 (10.03.2013)
+- Added new FancyBox 2 V. 2.1.4 with jQuery Support 1.9.x
+
+Version 1.1 (26.02.2013)
+- Added jQuery 1.9.x Support
+
+First Release - version 1.0 (10.01.2013)

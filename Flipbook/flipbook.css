@@ -1,0 +1,135 @@
+    <style type="text/css">
+	#jig1 {
+		padding:0px;
+		margin:0;
+		min-height:0px;
+		display: block !important;
+	}
+	#jig1 img, #jig1 .jig-pixastic {
+		position:absolute;
+		top:0;
+		left:0;
+		margin: 0;
+		padding: 0 !important;
+		border-style: none !important;
+		vertical-align: baseline;
+		max-width:none !important;
+		max-height:none !important;
+		radius: 0 !important;
+		box-shadow: none !important;
+		z-index: auto !important;
+	}
+	#jig1 .jig-imageContainer {
+		margin-right: 3px;
+		margin-bottom: 3px;
+		-webkit-user-select: none;
+		float: left;
+		padding: 0px;
+	}
+	#jig1 .jig-imageContainer a {
+		margin: 0px !important;
+		padding: 0px !important;
+		position: static !important;
+		display: inline;
+	}
+	#jig1 .jig-overflow {
+		position: relative;
+		overflow:hidden;
+		vertical-align:baseline;
+	}
+	#jig1 a:link, #jig1 a:hover, #jig1 a:visited {
+		text-decoration:none;
+	}
+	#jig1 .jig-removeThis {
+		visibility:hidden;
+	}
+	#jig1 .jig-hiddenLink {
+		display:none;
+	}
+	#jig1 .jig-caption-wrapper {
+		max-height:100%;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		position: absolute;
+		margin:0;
+		padding:0;
+		z-index:100;
+		overflow:hidden;
+		opacity: 1;
+		-moz-opacity: 1;
+		filter:alpha(opacity=100);
+	}
+	#jig1 .jig-caption {
+		margin: 0;
+		padding:0 7px;
+		background: rgba(0, 0, 0, 0.75);
+	}
+	#jig1 .jig-caption-title {
+		padding:5px 0 5px !important;
+		overflow: hidden;
+		color:#FFF !important;
+		font-size: 18px;
+		font-weight: bold;
+		text-align:left;
+		padding:8px 4px 8px;
+	}
+	#jig1 .jig-caption-description-wrapper {
+		display:none;
+	}
+	#jig1 .jig-caption-description {
+		padding-bottom: 5px !important;
+		margin-top: -3px;
+		overflow: hidden;
+		color:#FFF !important;
+		font-size: 14px;
+		font-weight: normal;
+		text-align:left;
+		padding:0 4px 8px;
+	}
+	#jig1 .jig-alone {
+		padding-top:5px !important;
+		margin-top: 0 !important;
+	}
+	#jig1 .jig-overlay {
+		background:#000;
+		opacity: 0.6;
+		-moz-opacity: 0.6;
+		filter:alpha
+		(opacity=60);
+		height:100%;
+	}
+	#jig1 .jig-overlay-wrapper {
+		display:none;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+	.jigDeveloperLink {
+		line-height: 10px;
+	}
+	.jigDeveloperLink a {
+		font-size: 9px;
+	}
+	#jig1 .jig-clearfix:before, #jig1 .jig-clearfix:after {
+		content:'';
+		display: table;
+	}
+	#jig1 .jig-clearfix:after {
+		clear: both;
+	}
+	#jig1 .jig-clearfix {
+		zoom: 1;
+	}
+</style>
+<!--[if IE]>
+	<style type='text/css'>
+		#jig1 .jig-caption {
+			background:transparent;
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#bf000000, endColorstr=#bf000000);
+			zoom: 1;
+		}
+	</style>
+<![endif]-->

@@ -1,0 +1,601 @@
+<html>
+<head>
+
+	<script type='text/javascript' src='http://www.ownercanvas.com/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+
+	<link rel='stylesheet' id='accordion_pro-css'  href='./liteaccordion.css' type='text/css' media='all' />
+	
+	<script type='text/javascript' src='./liteaccordion.jquery.js'></script>		
+
+	<script type='text/javascript' src='./jquery.easing.1.3.js'></script>		
+	
+	<script type='text/javascript'>
+	
+		window.getURLParameter = function(name)
+		{
+			return decodeURI(
+				(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+			);
+		}	
+
+		window.urlDecode = function (url) {
+			return decodeURIComponent(url.replace(/\+/g, ' '));
+		}
+		
+		var $jq = jQuery.noConflict();
+
+		// Document has loaded DOM completely
+		$jq(document).ready(function($) {
+		
+			var hrefAddLoc = ".fb_help > ul > li > a[href]";
+			var zipReplace = /\[ZIP\]/g;			
+			var cityReplaceQuery = /\[CITY_QUERY\]/g;
+			var cityReplaceHyph = /\[CITY_HYPHEN\]/g;
+			var stateReplace = /\[STATE\]/g;
+			var location = "location";
+			var zipRegex = /\d{5}?/g;						
+			var zipReplaceDefault = "90028";
+			var cityReplaceDefault = "LOS ANGELES";
+			var stateReplaceDefault = "CA";
+			var cityMatchQuery = encodeURIComponent(cityReplaceDefault);
+			var cityMatchHyph = cityReplaceDefault.replace( / /g, '-');
+
+			
+			// Retrieve the location information from the URL
+			var urlLocation = getURLParameter(location);
+			
+			if (urlLocation)
+			{	
+				// Clean the returned location values from the URL
+		
+				var urlLocClean = urlDecode(urlLocation);
+				
+				var zipMatch = urlLocClean.match(zipRegex);
+				
+				var locArray = urlLocClean.split(',');
+				
+				var cityMatch;
+				var stateMatch;
+				if (locArray)
+				{					
+					cityMatch = locArray[0];
+					cityMatchQuery = encodeURIComponent(cityMatch);
+					cityMatchHyph = cityMatch.replace( / /g, '-');
+					
+					if (locArray.length >= 2)
+					{
+						stateMatch = locArray[1].trim().split( /\s/)[0];
+					}
+				}											
+
+
+				
+				// Perform replaces
+				$jq(hrefAddLoc).each(function() {
+				
+					if (cityMatch)
+					{
+						this.href = this.attributes[0].nodeValue.replace(cityReplaceQuery, cityMatchQuery);
+						this.href = this.attributes[0].nodeValue.replace(cityReplaceHyph, cityMatchHyph); 																	
+					}
+
+					if (stateMatch)
+					{
+						this.href = this.attributes[0].nodeValue.replace(stateReplace, stateMatch); 										
+					} 
+					else
+					{
+						// Nothing to replace with
+						this.href = this.attributes[0].nodeValue.replace(stateReplace, stateReplaceDefault); 										
+					}
+					
+					if (zipMatch)
+					{
+						this.href = this.attributes[0].nodeValue.replace(zipReplace, zipMatch[0]); 					
+					}				
+					else
+					{
+						// Nothing to replace with
+						this.href = this.attributes[0].nodeValue.replace(zipReplace, zipReplaceDefault); 					
+					}
+					
+				});
+				
+			}
+			
+		});
+	
+	</script>
+	
+	<style type="text/css">
+	#jig1 {
+		padding:0px;
+		margin:0;
+		min-height:0px;
+		display: block !important;
+	}
+	#jig1 img, #jig1 .jig-pixastic {
+		position:absolute;
+		top:0;
+		left:0;
+		margin: 0;
+		padding: 0 !important;
+		border-style: none !important;
+		vertical-align: baseline;
+		max-width:none !important;
+		max-height:none !important;
+		radius: 0 !important;
+		box-shadow: none !important;
+		z-index: auto !important;
+	}
+	#jig1 .jig-imageContainer {
+		margin-right: 3px;
+		margin-bottom: 3px;
+		-webkit-user-select: none;
+		float: left;
+		padding: 0px;
+	}
+	#jig1 .jig-imageContainer a {
+		margin: 0px !important;
+		padding: 0px !important;
+		position: static !important;
+		display: inline;
+	}
+	#jig1 .jig-overflow {
+		position: relative;
+		overflow:hidden;
+		vertical-align:baseline;
+	}
+	#jig1 a:link, #jig1 a:hover, #jig1 a:visited {
+		text-decoration:none;
+	}
+	#jig1 .jig-removeThis {
+		visibility:hidden;
+	}
+	#jig1 .jig-hiddenLink {
+		display:none;
+	}
+	#jig1 .jig-caption-wrapper {
+		max-height:100%;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		position: absolute;
+		margin:0;
+		padding:0;
+		z-index:100;
+		overflow:hidden;
+		opacity: 1;
+		-moz-opacity: 1;
+		filter:alpha(opacity=100);
+	}
+	#jig1 .jig-caption {
+		margin: 0;
+		padding:0 7px;
+		background: rgba(0, 0, 0, 0.75);
+	}
+	#jig1 .jig-caption-title {
+		padding:5px 0 5px !important;
+		overflow: hidden;
+		color:#FFF !important;
+		font-size: 18px;
+		font-weight: bold;
+		text-align:left;
+		padding:8px 4px 8px;
+	}
+	#jig1 .jig-caption-description-wrapper {
+		display:none;
+	}
+	#jig1 .jig-caption-description {
+		padding-bottom: 5px !important;
+		margin-top: -3px;
+		overflow: hidden;
+		color:#FFF !important;
+		font-size: 14px;
+		font-weight: normal;
+		text-align:left;
+		padding:0 4px 8px;
+	}
+	#jig1 .jig-alone {
+		padding-top:5px !important;
+		margin-top: 0 !important;
+	}
+	#jig1 .jig-overlay {
+		background:#000;
+		opacity: 0.6;
+		-moz-opacity: 0.6;
+		filter:alpha
+		(opacity=60);
+		height:100%;
+	}
+	#jig1 .jig-overlay-wrapper {
+		display:none;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+	.jigDeveloperLink {
+		line-height: 10px;
+	}
+	.jigDeveloperLink a {
+		font-size: 9px;
+	}
+	#jig1 .jig-clearfix:before, #jig1 .jig-clearfix:after {
+		content:'';
+		display: table;
+	}
+	#jig1 .jig-clearfix:after {
+		clear: both;
+	}
+	#jig1 .jig-clearfix {
+		zoom: 1;
+	}
+</style>
+<!--[if IE]>
+	<style type='text/css'>
+		#jig1 .jig-caption {
+			background:transparent;
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#bf000000, endColorstr=#bf000000);
+			zoom: 1;
+		}
+	</style>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="accordion" class="accordion_pro_3618">
+    <ol>
+        <li class="slide">
+            <h2><span>Staging</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Help buyers imagine their new life at your home.</h2>
+                        </div>
+                        <br />
+                        <p>Staging means putting your daily personal items out of view, then dressing up your home to appeal to the widest possible range of buyers.  Activities may include cleaning, decluttering, redecorating, painting, & landscaping.  In some neighborhoods, stagers even ask you to move out completely, then move in new furniture to make your rooms look larger.</p>
+                        <br />
+                    </div>
+
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig1">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 250px;" class="jig-overflow">
+                                        <img style="width: 376px; height: 250px; margin-left: -53px; margin-top: 0px;" alt="Stager" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2012/07/5a_stager1.jpg&h=300&q=90&f=.jpg">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearboth"></div>
+                    <div>
+                        <h2>Should I hire a professional?</h2>
+                         <p>Sellers on average enjoy <a href="http://blog.homegain.com/home-improvement-surveys/homegain-2012-national-home-improvement-survey-results/">significant return</a> from staging, though what staging precisely means varies by market.  You can replicate most of a professional's work yourself if so inclined. However, a stager's sense of what styles appeal to local buyers may prove valuable.  Also, it may take a <a href="http://smallnotebook.org/2012/09/27/how-to-shift-your-perspective-to-see-clutter/">fresh eye</a> to notice the clutter in your own home. 
+                        <br />
+                        <ul>
+                        <li>Staging consultant:  $300-$500</li>
+                        <li>Furniture rental: $3000+</li>
+                        <li>Friend with a good eye: Free</li>
+                        </ul>
+                        </p>
+                    </div>
+
+                    <div class="fb_help">
+                        <h2>Localized Places for Help</h2>
+                        <ul>
+							<li><a href="http://www.iahsp.com/members.php?zip=[ZIP]">IAHSP</a></li>
+							<li><a href="http://www.yelp.com/search?cflt=homestaging&find_loc=[ZIP]">Yelp</a></li>
+							<li><a href="http://goldengate.bbb.org/find-business-reviews/type/stager/home-staging/[ZIP]">BBB</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slide">
+            <h2><span>Photos</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Stand out online with professional photos.</h2>
+                        </div> <span class="dropcap"></span>
+                        <p>Photography is not just about having a fancy camera.  Photographers who work in real estate know the best angles for each room, & accentuate specific features of your home to maximize marketability. There's no substitute for experience to master to the right lenses, filters, & lighting to brighten dark corners and bring out shadows.    
+                        </p>
+                    </div>
+                    <br />
+					
+
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig1">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 250px;" class="jig-overflow">
+                                        <img style="width: 376px; height: 250px; margin-left: -53px; margin-top: 0px;" alt="Photographer" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2012/07/6a_photo1.jpg&h=300&q=90&f=.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearboth"></div>
+
+                    <div>
+                        <h2>Why hire a photographer?</h2>
+					
+						<p>Professional photography can <a href="http://blog.redfin.com/blog/2010/09/a_picture_is_worth_a_thousand_dollars_true_or_false.html">dramatically increase</a> the number of viewings to your listing online, which is crucial to getting more buyers to your showings & more offers for your home.  As DSLR cameras become popular, photography services have also gone down in price.  
+							<br />
+							<ul>
+							<li>Real Estate Photographer:  $300</li>
+							<li>Photo retouching: $50</li>
+							</ul>
+						</p>
+					</div>
+					
+                    <div class="fb_help">
+                        <h2>Localized Places for Help with Photos</h2>
+                        <ul>
+							<li><a href="http://directory.photographyforrealestate.net/search?country=&state=US-[STATE]&q=[CITY_QUERY]">Real Estate Photographer Directory</a></li>
+							<li><a href="http://www.realestatephotographers.org/find/[STATE].html">Real Estate Photographers of American & International</a></li>
+							<li><a href="http://www.yelp.com/search?cflt=photographers#find_desc=real+estate&sortby=review_count&find_loc=[ZIP]">Yelp</a></li>
+							<li><a href="http://goldengate.bbb.org/Find-Business-Reviews/type/photographer/photographers/[ZIP]">BBB</a></li>
+                        </ul>
+                    </div>					
+                </div>
+            </div>
+        </li>
+        <li class="slide">
+            <h2><span>Pricing</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Show you're serious with a well-priced listing.</h2>
+                        </div> 
+                        <p>Your opening price is important because your listing will get the most attention on its <a href="http://blog.redfin.com/blog/2010/08/you_only_get_one_chance_to_make_a_first_impression.html">first week</a>.  Buyers tend to avoid new listings they consider overpriced, but may see a later price reduction as a signal to ask for an <a href="http://onlinelibrary.wiley.com/doi/10.1111/1540-6229.00038/abstract">even lower price</a>. A reasonable opening price grabs the attention of potential buyers all at the same time, setting them up to compete for your home.</p>
+                            <br />
+                    </div>
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig1">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 250px;" class="jig-overflow">
+                                        <img style="width: 376px; height: 250px; margin-left: -53px; margin-top: 0px;" alt="Apprasier" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2012/07/3b_apprasier.jpg&h=300&q=90&f=.jpg">
+                                </div>
+                            </div>
+                            <div class="jig-clearfix"></div>
+                        </div>
+                    </div>
+					
+                    <div class="clearboth"></div>
+					
+                    <div>
+                        <h2>How much is my home worth?</h2>   
+                    <p>Estimates on sites like Zillow, Epprasial, & Homegain can be <a href="http://www.zillow.com/howto/DataCoverageZestimateAccuracy.htm">misleading</a>, but they do affect buyer expectations.  When pricing your home, compile a list of recently sold comparable homes in your neighorhood & consider intangibles such as views & remodeling.  For added confidence,  get an appraiser's objective opinion.   They see more local transactions than pretty much anyone else.  And, since their business comes mostly from banks, they may have an idea of what pricing lenders are likely to support.</p>
+					 
+					</div>
+					
+					<div class="fb_help">
+						<h2>Localized Places for Help with Pricing</h2>
+						<ul>
+							<li><a href="http://www.zillow.com/webtools/widgets/SingleHomeValue.htm">Zillow Home Value</a></li>
+							<li><a href="http://www.homegain.com/homevalues/[CITY_HYPHEN]-[STATE]/[ZIP]/">Home Gain</a></li>
+							<li><a href="http://local.eppraisal.com/home-values/[STATE]/[CITY_HYPHEN]-[STATE]">EPPraisal</a></li>
+							<li><a href="https://www.asc.gov/National-Registry/FindAnAppraiser.aspx">ASC National Registry</a></li>
+						</ul>
+					</div>						
+                </div>					
+				
+            </div>
+        </li>
+
+		
+		<li class="slide">
+            <h2><span>Disclosures</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Secure your transaction with disclosure paperwork.</h2>
+                        </div>
+                        <p>Disclosure laws give buyers the right to sue you if they find hidden problems in your home after they move in.  Disclosing  problems beforehand protects you from that risk & assures buyers in making offers. By being as thorough as possible in your disclosures, buyers are also less likely to cancel their offer or ask for a price reduction due to problems uncovered in their inspections.</p>
+                    </div>                            <br />
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig5">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 208px;" class="jig-overflow">
+                                        <img style="width: 271px; height: 208px; margin-top: 0px;" alt="Signs &amp; Flyers" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2013/01/1a_inspector1-1024x680.jpg&h=300&q=90&f=.jpg">
+                                        <canvas id="" tabindex="-1" class="jig-pixastic" title="" style="width: 271px; height: 208px; margin-top: 0px; display: block; opacity: 0;" height="208" width="271"></canvas>
+                                        <div class="jig-overlay-wrapper">
+                                            <div class="jig-overlay"></div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="jig-clearfix"></div>
+                        </div>
+                    </div>
+					
+                    <div class="clearboth"></div>
+                    
+					<div>
+                        <h2>How do I best protect myself?</h2>
+
+                    <p>The best way to meet <a href="http://www.dre.ca.gov/files/pdf/re6.pdf">disclosure obligations</a> is to conduct your own pre-sale inspection.  State and local laws specify what disclosure forms you need to complete.  Your local inspector can help you understand those forms & make informed responses. </p>
+					
+					<div class="fb_help">
+							<h2>Localized Places for Help</h2>
+							<ul>
+								<li><a href="http://www.yelp.com/search?cflt=home_inspectors&find_loc=[ZIP]">Yelp Home Inspectors</a></li>
+								<li><a href="http://www.yelp.com/search?cflt=pest_control&find_loc=[ZIP]">Yelp Pect Control</a></li>
+								<li><a href="http://www.creia.org/index.php?option=com_sobi2&sobi2Task=search&Itemid=68">Creia</a></li>
+								<li><a href="http://www.ashi.org/find/results.aspx?st=4&zip=[ZIP]&radius=25&city=&state=">ASHI</a></li>
+								<li><a href="http://www.nahi.org/home-inspector-search/">NAHI</a></li>
+								<li><a href="http://www.inspectorseek.com/results.php?q=[ZIP]&range=40">Inspector Seek</a></li>
+								<li><a href="http://www.nhdreport.com/">NHD Report</a></li>
+								<li><a href="http://www.pestboard.ca.gov/license.shtml">Pest Board</a></li>
+							</ul>
+						</div>						
+					</div>						
+					
+					
+                </div>
+            </div>
+        </li>	
+		
+		<li class="slide">
+            <h2><span>Listing</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Reach buyers on major destination sites.</h2>
+                        </div>
+                        <p><a href="http://www.realtor.org/reports/highlights-from-the-2012-profile-of-home-buyers-and-sellers">90% of buyers</a> search online for homes.  Major search sites like Zillow & Trulia allow you to list for free.  Or, you can post to many such sites at once using a free syndication service such as Postlets.  One notable exception is Craigslist, which requires you to create & maintain your listing manually.</p>
+                    </div>
+                    <br />
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig1">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 250px;" class="jig-overflow">
+                                        <img style="width: 376px; height: 250px; margin-left: -53px; margin-top: 0px;" alt="Website" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2012/07/8_website1.png&h=300&q=90&f=.png">
+                                </div>
+                            </div>
+                            <div class="jig-clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearboth"></div>
+                                    
+                    <div>
+                        <h2>Should I list on MLS or get premium placement?</h2>
+                    
+						<p>Before the rise of search sites, the only way to reach a large number of buyers at once was to ask an agent to put your home in your local Multiple Listing Service (MLS).  If you'd like your home to be found on Redfin & Realtor.com, you still need to post on MLS.  If you're in an neighborhood with a large number of competing listings, premium placement on major search sites can help you stand out & maximize inquiries. </p>
+					
+					
+						<div class="fb_help">
+							<h2>Places for Help</h2>
+							<ul>
+								<li><a href="http://www.listhub.com/home.html">List Hub</a></li>
+								<li><a href="http://www.postlets.com/">Postlets</a></li>
+								<li><a href="http://databasedads.com/listing-syndication-admaster/">Database Dads</a></li>
+							</ul>
+						</div>						
+					
+					
+					</div>
+					
+                </div>
+            </div>
+        </li>		
+
+        <li class="slide">
+            <h2><span>Showings</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Make the best impression to the most buyers.</h2>
+                        </div> 
+                        <p>Open houses are not required, but having a crowd generates competitive excitement for your home.  And while most visitors might be just curious, any one of them could know someone actively looking for a home like yours.  By treating everyone you meet seriously, you encourage offers by showing your professionalism.  If you're  emotional about the prospect of leaving your home, ask a relative or trusted friend to host instead.</p>
+                    </div>
+                    <br />
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig1">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 250px;" class="jig-overflow">
+                                        <img style="width: 376px; height: 250px; margin-left: -53px; margin-top: 0px;" alt="Signs" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2013/02/signs.jpg&h=300&q=90&f=.jpg">
+                                </div>
+                            </div>
+                            <div class="jig-clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearboth"></div>
+                    <br />
+                    <div>
+                        <h2>How do I run an open house?</h2>
+                    
+						<p>Be aware of traditional open house times in your neighborhood.  You can capture buyers with signs at strategic intersections.  Have a stack of color printouts of your listing handy, and a binder with your disclosures for all to see.  Maintain a sign-up list, and follow up with visitors to answer any questions.  </p>
+						
+						<div class="fb_help">
+							<h2>Places for Help</h2>
+							<ul>
+								<li><a href="http://www.sendhub.com">Send Hub</a></li>
+								<li><a href="http://www.google.com/voice">Google Voice</a></li>
+								<li><a href="http://blog.redfin.com/blog/2012/04/do_open_houses_help_homes_sell.html?src=home_selling_guide">Redfin Open House Guide</a></li>
+							</ul>
+						</div>							
+						
+					</div>
+                </div>
+            </div>
+        </li>
+		
+       <li class="slide">
+            <h2><span>Contract</span></h2>
+            <div>
+                <div style="padding:35px">
+                    <div class="one_half">
+                        <div class="title">
+                            <h2>Review buyers & handle offers smoothly.</h2>
+                        </div> 
+                        <p>Ask all buyers for a loan pre-approval letter from a bank or proof of funds in conjunction with any offer.   Offers should also be accompanied by a deposit check payable to a title or escrow company.  If you're anticipating multiple offers, it may make sense to set a deadline.  Be clear whether you want offers emailed, couriered, or delivered in person.</p>
+                    </div>
+                    <br />
+                    <div class="one_half last">
+                        <div style="width: 271px;" id="jig1">
+                            <div style="margin-right: 0px;" class="jig-imageContainer">
+                                <div style="opacity: 1; width: 271px; height: 250px;" class="jig-overflow">
+                                        <img style="width: 376px; height: 250px; margin-left: -53px; margin-top: 0px;" alt="Contract" src="http://www.ownerstation.com/wp-content/plugins/justified-image-grid/timthumb.php?src=http://www.ownerstation.com/wp-content/uploads/2012/07/Real_Estate_Purchase_Contract.jpg&h=300&q=90&f=.jpg">
+                                </div>
+                            </div>
+                            <div class="jig-clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearboth"></div>
+                    <br />
+                    <div>
+                        <h2>What should I pay attention to?</h2>
+                    
+						<p>Agents tend to use standard offer forms by the state or local Realtor Association.   Look for any contingencies (loan, inspection), and make sure you're okay with the timeframes specified.  Once you accept an offer or counteroffer, have the buyer sign your disclosures on any inspection reports.</p>
+						
+						<div class="fb_help">
+							<h2>Places for Help</h2>
+							<ul>
+								<li><a href="http://trueforms.com/Downloads.aspx?z1=101">True Forms</a></li>
+								<li><a href="https://dotloop.com/">Dotloop</a></li>
+								<li><a href="http://blog.redfin.com/blog/2012/04/do_open_houses_help_homes_sell.html?src=home_selling_guide">Redfin Open House Guide</a></li>
+								<li><a href="http://www.firsttuesday.us/course/TOC/CAR%20Index.pdf">C.A.R. Forms Index</a></li>
+							</ul>
+						</div>							
+						
+					</div>
+                </div>
+            </div>
+        </li>		
+
+		
+    </ol>
+    <noscript>
+        <p>Please enable JavaScript to get the full experience.</p>
+    </noscript>
+</div>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('.accordion_pro_3618').liteAccordion({
+            theme: 'ocanvas',
+            easing: 'easeInOutQuart',
+            containerWidth: 900,
+            containerHeight: 800,
+            headerWidth: 30,
+            autoPlay: false,
+            pauseOnHover: false,
+            rounded: false,
+            enumerateSlides: true,
+			tabbing: true,
+			tabSpacing: 20,
+			tabInterval: 3
+        }).show();
+    });
+</script>
+</div>
+</body>
+</html>

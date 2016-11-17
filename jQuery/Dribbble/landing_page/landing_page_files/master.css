@@ -1,0 +1,132 @@
+.fade-menu {
+  float: none;
+}
+
+ol.dribbbles
+{
+  list-style: none;
+}
+
+/* main dribbble list */
+ol.dribbbles li.group {
+  float: left;
+  padding: 0;
+}
+body#user-profile ol.dribbbles li.group, body#profile ol.dribbbles li.group {
+  margin-bottom: 4.166666666667%;
+}
+ol.dribbbles li.group:nth-child(3n) {
+  margin-right: 0;
+}
+body#shots ol.dribbbles li.group {
+  width: 22.680412371134%;
+  margin: 0 3.092783505155% 30px 0;
+}
+body#shots ol.dribbbles li.group:nth-child(3n) {
+  margin-right: 3.092783505155%;
+}
+body#shots ol.dribbbles li.group:nth-child(4n) {
+  margin-right: 0;
+}
+
+ol.dribbbles li h2 {
+  max-height: 16px;
+  margin: 10px 0 0 0;
+  padding: 0 0 0 10px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.4em;
+  color: #999999;
+  vertical-align: middle;
+}
+
+ol.dribbbles li div.dribbble {
+  position: relative;
+  clear: left;
+  background: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+ol.dribbbles li div.dribbble div.dribbble-shot {
+  padding: 10px;
+}
+
+ol.dribbbles li div.dribbble a.dribbble-over {
+  opacity: 0;
+  /* revealed on hover with jQuery */
+  filter: alpha(opacity=0);
+  /* IE hack */
+  position: absolute;
+  top: 0;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 2;
+  text-decoration: none;
+  color: #888;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.96);
+  overflow: hidden;
+  z-index: 3;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+ol.dribbbles li div.dribbble a.dribbble-over span.header {
+  background-color: #AAAAAA;
+  display: block;
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #000000;
+}
+
+ol.dribbbles li div.dribbble a.dribbble-over span.comment,
+ol.dribbbles li div.dribbble a.dribbble-over span.bio {
+  display: block;
+  margin: 0 0 10px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #777777;
+}
+
+ol.dribbbles li div.dribbble a.dribbble-over span.comment {
+  display: block;
+  margin: 20px 0 10px 0;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #777777;
+  text-align: left;
+}
+
+ol.dribbbles li div.dribbble-img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+ol.dribbbles li div.dribbble-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+ol.dribbbles-tease li div.dribbble-img {
+  padding-bottom: 65%;
+}
+
+.group:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

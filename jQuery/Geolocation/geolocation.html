@@ -1,0 +1,157 @@
+<script type='text/javascript'>
+
+var geoCookieName = "user-geo";
+var cookieSep = "_";
+
+/////////////////////////////////
+// Functions
+/////////////////////////////////
+
+// User Geo-Location Function
+window.geoLocation = function()
+{
+    
+    // Check if user GEO cookie already exists
+    var geoCookieArray = getGeoCookie();
+    if (!geoCookieArray)
+    {			
+            
+        var httpClientIPAddress = 'http://www.ownerstation.com/get-client-ip/';
+
+    
+		// Set user GEO cookie
+		jQuery.getJSON(httpClientIPAddress,
+			function(data){
+				var clientIP = data.ip;
+				
+				var httpGeoAddressFree = 'http://freegeoip.net/json/';
+				
+				/*
+					NOTE: don't always get zip from freegeoip				
+					ipAddress = ip
+					state (2 char) = region_code 
+					city = city
+					zip = zipcode
+				*/
+				
+				var httpGeoAddressInfoDB ='http://api.ipinfodb.com/v3/ip-city/?key=af6ca0bd7ee630b4074ba329a3283b88316aed2742409f91cc9d0b936a2d6c81&ip=' + clientIP + '&format=json&callback=?';
+
+				/*
+					NOTE: No state code from infodb
+					ipAddress = ipAddress
+					state (2 char) = N/A
+					city = cityName
+					zip = zipCode
+				*/
+
+				
+				jQuery.getJSON(httpGeoAddressFree,
+					function(data){
+						// Check if zipcode is set from freegeoip
+						if (data.zipCode)
+						{
+							setGeoCookie(data.ip, data.zipcode, data.region_code, data.city);
+						}// if not, then call ipinfodb
+						else
+						{
+							var ipAddress = data.ip;
+							var state = data.region_code;
+										
+							jQuery.getJSON(httpGeoAddressInfoDB,
+								function(data){
+									if (data['statusCode'] == 'OK') {
+										var city = data['cityName'];
+										var zipCode = data['zipCode'];
+										
+										setGeoCookie(ipAddress,zipCode,state,city);
+									}
+								})
+								.fail(function( jqxhr, textStatus, error ) {
+									var err = textStatus + ', ' + error;
+									console.log( "Request Failed: " + err);
+							});				
+								
+						}
+					})
+					.fail(function( jqxhr, textStatus, error ) {
+						var err = textStatus + ', ' + error;
+						console.log( "Request Failed: " + err);
+					});				
+				
+			})
+			.fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+		});	
+	}
+}
+	
+	
+window.setGeoCookie = function(ipAddress, zipCode, state, city)
+{
+	var cookieValue;
+	
+	cookieValue = ipAddress + cookieSep + zipCode + cookieSep + state + cookieSep + city;
+	
+	setCookie(geoCookieName , cookieValue, 30);
+	
+}
+
+
+window.getGeoCookie = function()
+{
+	var geoCookie = getCookie(geoCookieName);
+	
+	var geoArray;
+	
+	if (geoCookie)
+	{
+		geoArray = geoCookie.split(cookieSep);
+	}
+	
+	return geoArray;
+}
+
+
+
+window.setCookie = function(c_name,value,exdays)
+{
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	document.cookie=c_name + "=" + c_value;
+}
+
+
+window.getCookie = function(c_name)
+{
+	var c_value = document.cookie;
+	var c_start = c_value.indexOf(" " + c_name + "=");
+	if (c_start == -1)
+	{
+		c_start = c_value.indexOf(c_name + "=");
+	}
+	
+	if (c_start == -1)
+	{
+		c_value = null;
+	}
+	else
+	{
+		c_start = c_value.indexOf("=", c_start) + 1;
+		var c_end = c_value.indexOf(";", c_start);
+		
+		if (c_end == -1)
+		{
+			c_end = c_value.length;
+		}
+		
+		c_value = unescape(c_value.substring(c_start,c_end));
+	}
+	return c_value;
+}
+
+geoLocation();
+
+
+</script>
