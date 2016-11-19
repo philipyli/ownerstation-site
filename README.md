@@ -1,6 +1,6 @@
 # OwnerStation
 
-Onboarding and signup for Home Sale Platform.  Collect all necessary info to post home listing (verified address, property details, open house dates, contact info, asking price, etc)
+Onboarding and signup for Home Sale Platform.  Collect all necessary info to post home listing (verified address, photos, property details, open house dates, contact info, asking price, etc)
 
 
 ## Integration
