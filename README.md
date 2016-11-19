@@ -11,4 +11,5 @@ Onboarding and signup for Home Sale Platform.  Collect all necessary info to pos
 
 ## Built With
 
-* Mostly Bootscrap, some jQuery
+* Mostly Bootscrap
+* some jQuery (eg geolocation API, liteAccordian)
